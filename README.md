@@ -80,7 +80,7 @@ WHERE name IN (‘Bob’, ‘Fred’, ‘Harry’);
 ```
 
 - IS NULL/IS NOT NULL will return only rows with a NULL/NOT NULL value
-```
+```SQL
 SELECT name
 FROM customers
 WHERE name IS NULL;
@@ -94,13 +94,53 @@ CREATE TABLE customers (
     age int
 );
 ```
+- CREATE INDEX generates an index for a table. Indexes are used to retrieve data from a database faster.
+```SQL
+CREATE INDEX idx_name
+ON customers (name);
+```
 
+- CREATE VIEW creates a virtual table based on the result set of an SQL statement. A view is like a regular table, but it is not saved as a permanent table in the database
+```SQL
+CREATE VIEW [Bob Customers] AS
+SELECT name, age
+FROM customers
+WHERE name = ‘Bob’;
+```
+- DROP TABLE/INDEX deletes a table/index
+```SQL
+DROP TABLE customers;
+```
 
+--- UPDATE statement is used to update data in a table
+```SQL
+UPDATE customers
+SET age = 56
+WHERE name = ‘Bob’;
+```
 
+- DELETE can remove all rows from a table
+```SQL
+DELETE FROM customers
+WHERE name = ‘Bob’;
+```
 
+- ALTER TABLE allows you to add or remove columns from a table
+```SQL
+ALTER TABLE customers
+ADD surname varchar(255);
+```
+```SQL
+ALTER TABLE customers
+DROP COLUMN surname;
+```
 
-
-
+### AGGREGATE FUNCTIONS (COUNT/SUM/AVG/MIN/MAX)
+- COUNT/SUM/AVG/MIN/MAX returns the number of rows that match the specified criteria
+```SQL
+SELECT COUNT(*)
+FROM customers;
+```
 
 
 
